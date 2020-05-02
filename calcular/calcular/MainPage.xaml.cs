@@ -31,7 +31,7 @@ namespace calcular
 
         public void SumarCUC()
         {
-            decimal vcuc = 0; try { vcuc = decimal.Parse(ValorCUC.Text.Replace(".",",")); } catch { }
+            decimal vcuc = 0; try { vcuc = decimal.Parse(ValorCUC.Text.Replace(".", ",")); } catch { }
             decimal v100cuc = 0; try { v100cuc = decimal.Parse(C100CUC.Text.Replace(".", ",")) * 100; } catch { }
             decimal v50cuc = 0; try { v50cuc = decimal.Parse(C50CUC.Text.Replace(".", ",")) * 50; } catch { }
             decimal v20cuc = 0; try { v20cuc = decimal.Parse(C20CUC.Text.Replace(".", ",")) * 20; } catch { }
@@ -44,19 +44,33 @@ namespace calcular
             decimal v010cuc = 0; try { v010cuc = decimal.Parse(C010CUC.Text.Replace(".", ",")) * decimal.Parse("0,10"); } catch { }
             decimal v005cuc = 0; try { v005cuc = decimal.Parse(C005CUC.Text.Replace(".", ",")) * decimal.Parse("0,05"); } catch { }
 
-            LC100CUC.Text = "(" + v100cuc.ToString()+")";
-            LC50CUC.Text = "(" + v50cuc.ToString() + ")";
-            LC20CUC.Text = "(" + v20cuc.ToString() + ")";
-            LC10CUC.Text = "(" + v10cuc.ToString() + ")";
-            LC5CUC.Text = "(" + v5cuc.ToString() + ")";
-            LC3CUC.Text = "(" + v3cuc.ToString() + ")";
-            LC1CUC.Text = "(" + v1cuc.ToString() + ")";
-            LC050CUC.Text = "(" + v050cuc.ToString() + ")";
-            LC010CUC.Text = "(" + v010cuc.ToString() + ")";
-            LC025CUC.Text = "(" + v025cuc.ToString() + ")";
-            LC005CUC.Text = "(" + v005cuc.ToString() + ")";
+            if (v100cuc > 0)
+                LC100CUC.Text = "= $" + v100cuc.ToString();
+            if (v50cuc > 0)
+                LC50CUC.Text = "= $" + v50cuc.ToString();
+            if (v20cuc > 0)
+                LC20CUC.Text = "= $" + v20cuc.ToString();
+            if (v10cuc > 0)
+                LC10CUC.Text = "= $" + v10cuc.ToString();
+            if (v5cuc > 0)
+                LC5CUC.Text = "= $" + v5cuc.ToString();
+            if (v3cuc > 0)
+                LC3CUC.Text = "= $" + v3cuc.ToString();
+            if (v1cuc > 0)
+                LC1CUC.Text = "= $" + v1cuc.ToString();
+            if (v050cuc > 0)
+                LC050CUC.Text = "= $" + v050cuc.ToString();
+            if (v010cuc > 0)
+                LC010CUC.Text = "= $" + v010cuc.ToString();
+            if (v025cuc > 0)
+                LC025CUC.Text = "= $" + v025cuc.ToString();
+            if (v005cuc > 0)
+                LC005CUC.Text = "= $" + v005cuc.ToString();
 
-            TotalParcialCUC.Text ="$ "+ (vcuc + v100cuc + v50cuc + v20cuc + v10cuc + v5cuc + v3cuc + v1cuc + v050cuc + v010cuc + v025cuc + v005cuc).ToString() +" CUC";                     
+            TotalParcialCUC.Text = "$ " + (vcuc + v100cuc + v50cuc + v20cuc + v10cuc + v5cuc + v3cuc + v1cuc + v050cuc + v010cuc + v025cuc + v005cuc).ToString() + " CUC";
+
+            calcularTotalCUC();
+            calcularTotalCUP();
 
         }
 
@@ -75,12 +89,85 @@ namespace calcular
             decimal v1cup = 0; try { v1cup = decimal.Parse(C1CUP.Text.Replace(".", ",")) * 1; } catch { }
             decimal v020cup = 0; try { v020cup = decimal.Parse(C020CUP.Text.Replace(".", ",")) * decimal.Parse("0,20"); } catch { }
 
+            if (v1000cup > 0)
+                LC1000CUP.Text = "= $" + v1000cup.ToString();
+            if (v500cup > 0)
+                LC500CUP.Text = "= $" + v500cup.ToString();
+            if (v200cup > 0)
+                LC200CUP.Text = "= $" + v200cup.ToString();
+            if (v100cup > 0)
+                LC100CUP.Text = "= $" + v100cup.ToString();
+            if (v50cup > 0)
+                LC50CUP.Text = "= $" + v50cup.ToString();
+            if (v20cup > 0)
+                LC20CUP.Text = "= $" + v20cup.ToString();
+            if (v10cup > 0)
+                LC10CUP.Text = "= $" + v10cup.ToString();
+            if (v5cup > 0)
+                LC5CUP.Text = "= $" + v5cup.ToString();
+            if (v3cup > 0)
+                LC3CUP.Text = "= $" + v3cup.ToString();
+            if (v1cup > 0)
+                LC1CUP.Text = "= $" + v1cup.ToString();
+            if (v020cup > 0)
+                LC020CUP.Text = "= $" + v020cup.ToString();
+
             TotalParcialCUP.Text = "$ " + (vcup + v1000cup + v500cup + v200cup + v100cup + v50cup + v20cup + v10cup + v5cup + v3cup + v1cup + v020cup).ToString() + " CUP";
 
+            calcularTotalCUC();
+            calcularTotalCUP();
+        }
+
+        public void calcularTotalCUC()
+        {
+            decimal tcuc = 0;
+
+            try
+            {
+                tcuc = decimal.Parse(TotalParcialCUP.Text.Replace("$", "").Replace(" ", "").Replace("C", "").Replace("U", "").Replace("P", "").Trim()) / 25;
+            }
+            catch
+            {
+
+
+            }
+
+            try
+            {
+                TotalCUC.Text = "$ " + (decimal.Parse(TotalParcialCUC.Text.Replace("$", "").Replace(" ", "").Replace("C", "").Replace("U", "").Replace("P", "").Trim()) + tcuc).ToString() + " CUC";
+            }
+            catch
+            {
+                TotalCUC.Text = "$ " + tcuc.ToString() + " CUC";
+            }
 
         }
 
-        
+        public void calcularTotalCUP()
+        {
+            decimal tcup = 0;
+
+            try
+            {
+                tcup = 25 * decimal.Parse(TotalParcialCUC.Text.Replace("$", "").Replace(" ", "").Replace("C", "").Replace("U", "").Replace("P", "").Trim());
+            }
+            catch
+            {
+
+
+            }
+
+            try
+            {
+                TotalCUP.Text = "$ " + (decimal.Parse(TotalParcialCUP.Text.Replace("$", "").Replace(" ", "").Replace("C", "").Replace("U", "").Replace("P", "").Trim()) + tcup).ToString() + " CUP";
+            }
+            catch
+            {
+                TotalCUP.Text = "$ " + tcup.ToString() + " CUP";
+            }
+
+        }
+
         #endregion
     }
 }
