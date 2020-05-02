@@ -46,26 +46,37 @@ namespace calcular
 
             if (v100cuc > 0)
                 LC100CUC.Text = "= $" + v100cuc.ToString();
+            else LC100CUC.Text = string.Empty;
             if (v50cuc > 0)
                 LC50CUC.Text = "= $" + v50cuc.ToString();
+            else LC50CUC.Text = string.Empty;
             if (v20cuc > 0)
                 LC20CUC.Text = "= $" + v20cuc.ToString();
+            else LC20CUC.Text = string.Empty;
             if (v10cuc > 0)
                 LC10CUC.Text = "= $" + v10cuc.ToString();
+            else LC10CUC.Text = string.Empty;
             if (v5cuc > 0)
                 LC5CUC.Text = "= $" + v5cuc.ToString();
+            else LC5CUC.Text = string.Empty;
             if (v3cuc > 0)
                 LC3CUC.Text = "= $" + v3cuc.ToString();
+            else LC3CUC.Text = string.Empty;
             if (v1cuc > 0)
                 LC1CUC.Text = "= $" + v1cuc.ToString();
+            else LC1CUC.Text = string.Empty;
             if (v050cuc > 0)
                 LC050CUC.Text = "= $" + v050cuc.ToString();
+            else LC050CUC.Text = string.Empty;
             if (v010cuc > 0)
                 LC010CUC.Text = "= $" + v010cuc.ToString();
+            else LC010CUC.Text = string.Empty;
             if (v025cuc > 0)
                 LC025CUC.Text = "= $" + v025cuc.ToString();
+            else LC025CUC.Text = string.Empty;
             if (v005cuc > 0)
                 LC005CUC.Text = "= $" + v005cuc.ToString();
+            else LC005CUC.Text = string.Empty;
 
             TotalParcialCUC.Text = "$ " + (vcuc + v100cuc + v50cuc + v20cuc + v10cuc + v5cuc + v3cuc + v1cuc + v050cuc + v010cuc + v025cuc + v005cuc).ToString() + " CUC";
 
@@ -91,26 +102,37 @@ namespace calcular
 
             if (v1000cup > 0)
                 LC1000CUP.Text = "= $" + v1000cup.ToString();
+            else LC1000CUP.Text = string.Empty;
             if (v500cup > 0)
                 LC500CUP.Text = "= $" + v500cup.ToString();
+            else LC500CUP.Text = string.Empty;
             if (v200cup > 0)
                 LC200CUP.Text = "= $" + v200cup.ToString();
+            else LC200CUP.Text = string.Empty;
             if (v100cup > 0)
                 LC100CUP.Text = "= $" + v100cup.ToString();
+            else LC100CUP.Text = string.Empty;
             if (v50cup > 0)
                 LC50CUP.Text = "= $" + v50cup.ToString();
+            else LC50CUP.Text = string.Empty;
             if (v20cup > 0)
                 LC20CUP.Text = "= $" + v20cup.ToString();
+            else LC20CUP.Text = string.Empty;
             if (v10cup > 0)
                 LC10CUP.Text = "= $" + v10cup.ToString();
+            else LC10CUP.Text = string.Empty;
             if (v5cup > 0)
                 LC5CUP.Text = "= $" + v5cup.ToString();
+            else LC5CUP.Text = string.Empty;
             if (v3cup > 0)
                 LC3CUP.Text = "= $" + v3cup.ToString();
+            else LC3CUP.Text = string.Empty;
             if (v1cup > 0)
                 LC1CUP.Text = "= $" + v1cup.ToString();
+            else LC1CUP.Text = string.Empty;
             if (v020cup > 0)
                 LC020CUP.Text = "= $" + v020cup.ToString();
+            else LC020CUP.Text = string.Empty;
 
             TotalParcialCUP.Text = "$ " + (vcup + v1000cup + v500cup + v200cup + v100cup + v50cup + v20cup + v10cup + v5cup + v3cup + v1cup + v020cup).ToString() + " CUP";
 
